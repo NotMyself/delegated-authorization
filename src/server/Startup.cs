@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -57,6 +58,10 @@ namespace server
             {
               o.Scope.Add(scope);
             }
+            //possible these events could be used to cache tokens
+            //somewhere else.
+            o.Events.OnTicketReceived = ctx => Task.CompletedTask;
+            o.Events.OnCreatingTicket = ctx => Task.CompletedTask;
           })
           .AddOAuth("twitch", "Twitch.tv", o =>
           {
@@ -72,6 +77,10 @@ namespace server
             {
               o.Scope.Add(scope);
             }
+            //possible these events could be used to cache tokens
+            //somewhere else.
+            o.Events.OnTicketReceived = ctx => Task.CompletedTask;
+            o.Events.OnCreatingTicket = ctx => Task.CompletedTask;
           });
     }
 
@@ -121,20 +130,6 @@ namespace server
           await response.WriteAsync("</body></html>");
         });
       });
-
-      app.Map("/error", _ =>
-      {
-        _.Run(async context =>
-        {
-          var response = context.Response;
-          response.ContentType = "text/html";
-          await response.WriteAsync("<html><body>");
-          await response.WriteAsync($"An remote failure has occurred: {context.Request.Query["FailureMessage"]}<br>");
-          await response.WriteAsync("<a href='/'>Home</a>");
-          await response.WriteAsync("</body></html>");
-        });
-      });
-
 
       app.Run(async context =>
       {
