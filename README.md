@@ -33,4 +33,4 @@ You will need to create an Auth0 tenant and configure a client application for O
 
 ## Demo
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Xn5e4-a9QQw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Demo](http://img.youtube.com/vi/Xn5e4-a9QQw/0.jpg)](http://www.youtube.com/watch?v=Xn5e4-a9QQw "Demo")
