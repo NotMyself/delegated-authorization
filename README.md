@@ -31,3 +31,6 @@ You will need to create an Auth0 tenant and configure a client application for O
 | [Twitch](https://dev.twitch.tv/console) (OAuth) |https://localhost:5001/authorize-twitch |
 | [Github](https://github.com/settings/developers) (OAuth) |https://localhost:5001/authorize-github |
 
+## Demo
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Xn5e4-a9QQw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
